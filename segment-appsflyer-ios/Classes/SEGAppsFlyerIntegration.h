@@ -8,12 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-#if defined(__has_include) && __has_include(<Analytics/SEGAnalytics.h>) && __has_include(<Analytics/SEGAnalyticsUtils.h>)
 #import <Analytics/SEGAnalytics.h>
 #import <Analytics/SEGAnalyticsUtils.h>
-#else
-@import Segment;
-#endif
 
 #import <AppsFlyerLib/AppsFlyerLib.h>
 
