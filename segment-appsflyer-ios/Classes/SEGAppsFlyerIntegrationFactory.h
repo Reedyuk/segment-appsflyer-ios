@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Analytics/SEGIntegrationFactory.h>
+@import Segment;
 #import "SEGAppsFlyerIntegration.h"
 
 @interface SEGAppsFlyerIntegrationFactory : NSObject <SEGIntegrationFactory>

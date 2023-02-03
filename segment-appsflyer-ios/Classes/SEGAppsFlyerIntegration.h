@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import <Analytics/SEGAnalytics.h>
-#import <Analytics/SEGAnalyticsUtils.h>
+@import Segment;
 
 #import <AppsFlyerLib/AppsFlyerLib.h>
 
