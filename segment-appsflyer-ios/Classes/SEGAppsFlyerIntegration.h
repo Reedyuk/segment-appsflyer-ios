@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@import Segment;
+#import <Segment/Segment.h>
 
 #import <AppsFlyerLib/AppsFlyerLib.h>
 
