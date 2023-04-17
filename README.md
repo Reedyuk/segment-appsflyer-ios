@@ -1,12 +1,12 @@
-<img src="https://www.appsflyer.com/wp-content/uploads/2016/11/logo-1.svg"  width="200">
+<img src="https://massets.appsflyer.com/wp-content/uploads/2018/06/20092440/static-ziv_1TP.png"  width="400" > 
 
 # AppsFlyer integration for Segment.
 
-## This is a Segment wrapper for AppsFlyer SDK that is built with iOS SDK v6.8.1. 
+## This is a Segment wrapper for AppsFlyer SDK that is built with iOS SDK v6.10.1.
 
-[![Version](https://img.shields.io/cocoapods/v/segment-appsflyer-ios.svg?style=flat)](http://cocoapods.org/pods/segment-appsflyer-ios)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-
+[![Version](https://img.shields.io/badge/cocoapods-compatible-brightgreen?logo=cocoapods&logoColor=green&style=flat)](http://cocoapods.org/pods/segment-appsflyer-ios)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-not_compatible-C20000.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![CI - Tests](https://github.com/AppsFlyerSDK/segment-appsflyer-ios/actions/workflows/unit-tests-workflow.yml/badge.svg)](https://github.com/AppsFlyerSDK/segment-appsflyer-ios/actions/workflows/unit-tests-workflow.yml)
 
 ----------
 🛠 In order for us to provide optimal support, we would kindly ask you to submit any issues to support@appsflyer.com
@@ -48,27 +48,17 @@ To install the segment-appsflyer-ios integration:
 
 **Production** version: 
 ```ruby
-pod 'segment-appsflyer-ios', '6.8.1'
+pod 'segment-appsflyer-ios', '6.10.1'
 ```
 
 **Strict mode SDK** version: 
 ```ruby
-pod 'segment-appsflyer-ios/Strict', '6.8.1'
+pod 'segment-appsflyer-ios/Strict', '6.10.1'
 ```
 Use the strict mode SDK to completely remove IDFA collection functionality and AdSupport framework dependencies (for example, when developing apps for kids).
 
-2. Run `pod isntall` in the project directory
+2. Run `pod install` in the project directory
 
-### Carthage
-
-[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate AppsFlyer and Segment into your Xcode project using Carthage, specify it in your `Cartfile`:
-
-**Production** version: 
-```ogdl
-github "AppsFlyerSDK/segment-appsflyer-ios" "6.8.1"
-```
-
-  
 ### Swift Package Manager
   
  In XCode, go to **File** > **Swift Package** > **Add Package dependency...** And add https://github.com/AppsFlyerSDK/segment-appsflyer-ios for the package dependency url. 
@@ -93,7 +83,7 @@ First of all, you must provide values for AppsFlyer Dev Key, Apple App ID (iTune
 
 Open `AppDelegate.h` and add:
 
-```
+```objective-c
 #import "SEGAppsFlyerIntegrationFactory.h"
 ```
 
@@ -104,7 +94,7 @@ In `AppDelegate.m` ➜ `didFinishLaunchingWithOptions`:
     // For ApsFlyer debug logs
     [AppsFlyerLib shared].isDebug = YES;
     
-    [[AppsFlyerLib shared] waitForATTUserAuthorizationWithTimeoutInterval:60];
+//    [[AppsFlyerLib shared] waitForATTUserAuthorizationWithTimeoutInterval:60];
     /*
      Based on your needs you can either pass a delegate to process deferred
      and direct deeplinking callbacks or disregard them.
@@ -118,14 +108,13 @@ In `AppDelegate.m` ➜ `didFinishLaunchingWithOptions`:
 //    SEGAppsFlyerIntegrationFactory* factoryWithDelegate = [SEGAppsFlyerIntegrationFactory createWithLaunchDelegate:self andManualMode:YES];
 
     
-    SEGAnalyticsConfiguration *config = [SEGAnalyticsConfiguration configurationWithWriteKey:@"WYsuyFINOKZuQyQAGn5JQoCgIdhOI146"];
+    SEGAnalyticsConfiguration *config = [SEGAnalyticsConfiguration configurationWithWriteKey:@"SEGMENT_KEY"];
     [config use:factoryNoDelegate];
 //    [config use:factoryWithDelegate];  // use this if you want to get conversion data in the app. Read more in the integration guide
     config.enableAdvertisingTracking = YES;       //OPTIONAL
     config.trackApplicationLifecycleEvents = YES; //OPTIONAL
     config.trackDeepLinks = YES;                  //OPTIONAL
     config.trackPushNotifications = YES;          //OPTIONAL
-    config.trackAttributionData = YES;            //OPTIONAL
     [SEGAnalytics debug:YES];                     //OPTIONAL
     [SEGAnalytics setupWithConfiguration:config];
 ```
@@ -156,15 +145,16 @@ In `AppDelegate.m` ➜ `applicationDidBecomeActive`:
 3. Open `AppDelegate.swift` and add:
 
 ```swift
-import Analytics
+import Segment
 import AppsFlyerLib
+import segment_appsflyer_ios
 ```
 
 4. In `didFinishLaunchingWithOptions` add:
 ```swift 
     // For AppsFLyer debug logs uncomment the line below
     // AppsFlyerLib.shared().isDebug = true
-    AppsFlyerLib.shared().waitForATTUserAuthorization(withTimeoutInterval: 60)
+//    AppsFlyerLib.shared().waitForATTUserAuthorization(withTimeoutInterval: 60)
 
     /*
      Based on your needs you can either pass a delegate to process deferred
@@ -188,7 +178,6 @@ import AppsFlyerLib
     config.trackApplicationLifecycleEvents = true //OPTIONAL
     config.trackDeepLinks = true                  //OPTIONAL
     config.trackPushNotifications = true          //OPTIONAL
-    config.trackAttributionData = true            //OPTIONAL
     
     Analytics.debug(false)
     Analytics.setup(with: config)
@@ -220,7 +209,7 @@ In identify call ```traits``` dictionary  ```setCustomerUserID``` and ```currenc
   In order to get Conversion Data you need to:
   
   1. Add `SEGAppsFlyerLibDelegate` protocol to your AppDelegate.h (or other) class
-```
+```objective-c
 #import <UIKit/UIKit.h>
 #import "SEGAppsFlyerIntegrationFactory.h"
 
@@ -229,7 +218,7 @@ In identify call ```traits``` dictionary  ```setCustomerUserID``` and ```currenc
   2. Pass AppDelegate (or other) class when configuring Segment Analytics with AppsFlyer. Change line `[config use:[SEGAppsFlyerIntegrationFactory instance]];` to `[config use:[SEGAppsFlyerIntegrationFactory createWithLaunchDelegate:self]];`
   3. In the class passed to the method above (AppDelegate.m by default) implement methods of the `SEGAppsFlyerLibDelegate` protocol. See sample code below:
   
-```
+```objective-c
 #import "AppDelegate.h"
 
 @interface AppDelegate ()
@@ -291,7 +280,7 @@ In identify call ```traits``` dictionary  ```setCustomerUserID``` and ```currenc
   2. Pass AppDelegate (or other) class when configuring Segment Analytics with AppsFlyer. If you use sample code from above, change line `config.use(factoryNoDelegate)` to `config.use(factoryWithDelegate)`
   3. Implement methods of the protocol in the class, passed as a delegate. See sample code below where AppDelegate is used for that:
   
-  ```
+  ```swift
   class AppDelegate: UIResponder, UIApplicationDelegate, SEGAppsFlyerLibDelegate {
     
     var window: UIWindow?
@@ -340,13 +329,13 @@ In order to use Unified Deep linking you need to:
   
   1. Add `SEGAppsFlyerDeepLinkDelegate` protocol to your AppDelegate (or other) class
   2. Pass AppDelegate (or other) class when configuring Segment Analytics with AppsFlyer. From the sample code above, change  factoryWithDelegate to :
-  ```
+  ```swift
   let factoryWithDelegate: SEGAppsFlyerIntegrationFactory = SEGAppsFlyerIntegrationFactory.create(withLaunch: self, andDeepLinkDelegate: self)
   ```
 
   3. Implement methods of the protocol in the class, passed as a delegate. See sample code below where AppDelegate is used for that:
   
-```
+```swift
 extension AppDelegate: SEGAppsFlyerDeepLinkDelegate {
     func didResolveDeepLink(_ result: DeepLinkResult) {
         print(result)
@@ -359,7 +348,7 @@ extension AppDelegate: SEGAppsFlyerDeepLinkDelegate {
 ## <a id="install_attributed"> Install Attributed event
 
 If you are working with networks that don't allow passing user level data to 3rd parties, you will need to apply code to filter out these networks before calling
-```
+```objective-c
 // [self.analytics track:@"Install Attributed" properties:[properties copy]];
 ```
 

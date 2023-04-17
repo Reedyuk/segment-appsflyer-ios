@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,7 +14,20 @@
 		47A0A8FA23D5CA7A00FE781F /* SEGAppsFlyerIntegrationFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 47A0A8F523D5CA7A00FE781F /* SEGAppsFlyerIntegrationFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		86F430F225B4369500BD66B9 /* AppsFlyerLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47A0A8FD23D5CF8B00FE781F /* AppsFlyerLib.framework */; };
 		86F430F525B4369600BD66B9 /* Segment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868810BD258FB606001F6545 /* Segment.framework */; };
+		A5201335295B1A5B00B87090 /* SEGAppsFlyerIntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5201334295B1A5B00B87090 /* SEGAppsFlyerIntegrationTests.m */; };
+		A52E9C84295B0478004EC3DF /* SEGAppsFlyerIntegrationFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52E9C83295B0478004EC3DF /* SEGAppsFlyerIntegrationFactoryTests.swift */; };
+		A52E9C85295B0478004EC3DF /* SegmentAppsFlyeriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47A0A8DA23D5B13500FE781F /* SegmentAppsFlyeriOS.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A52E9C86295B0478004EC3DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 47A0A8D123D5B13500FE781F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 47A0A8D923D5B13500FE781F;
+			remoteInfo = "segment-appsflyer-ios";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		47A0A8DA23D5B13500FE781F /* SegmentAppsFlyeriOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SegmentAppsFlyeriOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -28,6 +41,10 @@
 		47A0A8FD23D5CF8B00FE781F /* AppsFlyerLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppsFlyerLib.framework; path = Carthage/Build/iOS/AppsFlyerLib.framework; sourceTree = "<group>"; };
 		86881093258F9113001F6545 /* segment_appsflyer_ios.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = segment_appsflyer_ios.framework; path = Carthage/Build/iOS/Static/segment_appsflyer_ios.framework; sourceTree = "<group>"; };
 		868810BD258FB606001F6545 /* Segment.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Segment.framework; path = Carthage/Build/iOS/Segment.framework; sourceTree = "<group>"; };
+		A5201333295B1A5B00B87090 /* SegmentAppsFlyeriOSTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SegmentAppsFlyeriOSTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		A5201334295B1A5B00B87090 /* SEGAppsFlyerIntegrationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEGAppsFlyerIntegrationTests.m; sourceTree = "<group>"; };
+		A52E9C81295B0478004EC3DF /* SegmentAppsFlyeriOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SegmentAppsFlyeriOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A52E9C83295B0478004EC3DF /* SEGAppsFlyerIntegrationFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SEGAppsFlyerIntegrationFactoryTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +57,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A52E9C7E295B0478004EC3DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A52E9C85295B0478004EC3DF /* SegmentAppsFlyeriOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -47,8 +72,10 @@
 			isa = PBXGroup;
 			children = (
 				47A0A8DC23D5B13500FE781F /* segment-appsflyer-ios */,
+				A52E9C82295B0478004EC3DF /* SegmentAppsFlyeriOSTests */,
 				47A0A8DB23D5B13500FE781F /* Products */,
 				47A0A8FB23D5CF8B00FE781F /* Frameworks */,
+				A7E5A8BDE3AE44B9A11797D8 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				47A0A8DA23D5B13500FE781F /* SegmentAppsFlyeriOS.framework */,
+				A52E9C81295B0478004EC3DF /* SegmentAppsFlyeriOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -92,6 +120,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A52E9C82295B0478004EC3DF /* SegmentAppsFlyeriOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				A52E9C83295B0478004EC3DF /* SEGAppsFlyerIntegrationFactoryTests.swift */,
+				A5201334295B1A5B00B87090 /* SEGAppsFlyerIntegrationTests.m */,
+				A5201333295B1A5B00B87090 /* SegmentAppsFlyeriOSTests-Bridging-Header.h */,
+			);
+			path = SegmentAppsFlyeriOSTests;
+			sourceTree = "<group>";
+		};
+		A7E5A8BDE3AE44B9A11797D8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -126,17 +171,40 @@
 			productReference = 47A0A8DA23D5B13500FE781F /* SegmentAppsFlyeriOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		A52E9C80295B0478004EC3DF /* SegmentAppsFlyeriOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A52E9C8A295B0478004EC3DF /* Build configuration list for PBXNativeTarget "SegmentAppsFlyeriOSTests" */;
+			buildPhases = (
+				A52E9C7D295B0478004EC3DF /* Sources */,
+				A52E9C7E295B0478004EC3DF /* Frameworks */,
+				A52E9C7F295B0478004EC3DF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A52E9C87295B0478004EC3DF /* PBXTargetDependency */,
+			);
+			name = SegmentAppsFlyeriOSTests;
+			productName = SegmentAppsFlyeriOSTests;
+			productReference = A52E9C81295B0478004EC3DF /* SegmentAppsFlyeriOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		47A0A8D123D5B13500FE781F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Andrii Hahan";
 				TargetAttributes = {
 					47A0A8D923D5B13500FE781F = {
 						CreatedOnToolsVersion = 11.2;
+					};
+					A52E9C80295B0478004EC3DF = {
+						CreatedOnToolsVersion = 14.1;
+						LastSwiftMigration = 1410;
 					};
 				};
 			};
@@ -154,12 +222,20 @@
 			projectRoot = "";
 			targets = (
 				47A0A8D923D5B13500FE781F /* segment-appsflyer-ios */,
+				A52E9C80295B0478004EC3DF /* SegmentAppsFlyeriOSTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		47A0A8D823D5B13500FE781F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A52E9C7F295B0478004EC3DF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -178,7 +254,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A52E9C7D295B0478004EC3DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A52E9C84295B0478004EC3DF /* SEGAppsFlyerIntegrationFactoryTests.swift in Sources */,
+				A5201335295B1A5B00B87090 /* SEGAppsFlyerIntegrationTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A52E9C87295B0478004EC3DF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 47A0A8D923D5B13500FE781F /* segment-appsflyer-ios */;
+			targetProxy = A52E9C86295B0478004EC3DF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		47A0A8E023D5B13500FE781F /* Debug */ = {
@@ -366,6 +459,60 @@
 			};
 			name = Release;
 		};
+		A52E9C88295B0478004EC3DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6UQAD4B3U2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MorisGateno.SegmentAppsFlyeriOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "SegmentAppsFlyeriOSTests/SegmentAppsFlyeriOSTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A52E9C89295B0478004EC3DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6UQAD4B3U2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MorisGateno.SegmentAppsFlyeriOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "SegmentAppsFlyeriOSTests/SegmentAppsFlyeriOSTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -383,6 +530,15 @@
 			buildConfigurations = (
 				47A0A8E323D5B13500FE781F /* Debug */,
 				47A0A8E423D5B13500FE781F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A52E9C8A295B0478004EC3DF /* Build configuration list for PBXNativeTarget "SegmentAppsFlyeriOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A52E9C88295B0478004EC3DF /* Debug */,
+				A52E9C89295B0478004EC3DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

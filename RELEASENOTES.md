@@ -1,4 +1,12 @@
-# Release Notes
+### 6.10.1
+* Update iOS SDK to v6.10.1
+* Added ci-cd.
+* Added Platform Extension call. 
+
+### 6.9.1
+* Updated iOS SDK to v6.9.1
+* Added unit tests.
+* Added github workflows. 
 
 ### 6.8.0
 * Updated iOS SDK to v6.8.0
